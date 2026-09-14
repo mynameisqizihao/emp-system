@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>员工管理系统注册页</title>
     <link rel="stylesheet" href="css/register.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/register.js"></script>
 </head>
 <body>
 <!--白色卡片容器-->
@@ -22,7 +24,8 @@
     <!--用户名-->
     <div class="login_form_input_username">
         <label for="username">用户名：</label>
-        <input type="text" id="username" name="username" placeholder="请输入用户名">
+        <input type="text" id="username" name="username" placeholder="请输入用户名" onblur="ajax3()">
+        <span id="username_commit_word"></span>
     </div>
 <!--    有账号快速去登陆界面-->
     <div class="login_tips">
@@ -33,7 +36,8 @@
     <!--密码-->
     <div class="login_form_input_password">
         <label for="password">密码：</label>
-        <input type="password" id="password" name="password" placeholder="请输入密码">
+        <input type="password" id="password" name="password" placeholder="请输入密码" onblur="ajax4()">
+        <span id="password_commit_word"></span>
     </div>
 
     <a href="index.html" class="login_btn">注 册</a>

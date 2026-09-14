@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+//a1，a2是给登陆界面用来检测用户名和密码的，如果不合理会返回密码错误什么的
 @RequestMapping("/ajax")
 @Controller
 public class UserController {
@@ -32,6 +34,24 @@ public class UserController {
         }else if(!password.equals("123456")){
             return "密码错误";
         }else {
+            return "OK";
+        }
+    }
+    @RequestMapping("/a3")
+    @ResponseBody
+    public String ajax3(String name){
+        if(name==null || name.equals("")){
+            return "用户名不能为空";
+        }else{
+            return "OK";
+        }
+    }
+    @RequestMapping("/a4")
+    @ResponseBody
+    public String ajax4(String password){
+        if(password==null || password.equals("")){
+            return "密码不能为空";
+        }else{
             return "OK";
         }
     }
