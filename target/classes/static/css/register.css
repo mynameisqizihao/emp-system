@@ -116,58 +116,8 @@ body {
     color: #0048ff;
 }
 
-.register_tips{
+.login_tips{
     position: relative;
     left: 260px;
     bottom: 47px;
-}
-
-.register_tips_a:hover{
-    color: #14a2fb;
-}
-
-.register_tips_a:active{
-    color: #0a38ae;
-}
-
-.login_remember_me{
-    width: 300px;
-    margin: 10px auto;
-    text-align: left;
-    font-size: 14px;
-    color: #2b303b;
-    height: 30px;
-    line-height: 30px;
-    /*高和行高一样让里面的内容做到垂直居中的一个效果*/
-}
-
-#remember_me{
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin: 10px 0px 0px 120px;
-}
-
-#remember_me_label{
-    position: relative;
-    right: 20px;
-    bottom: 2px;
-    display: inline-block;
-    margin: -10px 0px 0px -3px;
-    font-size: 15px;
-}
-
-#username_commit_word,
-#password_commit_word{
-    display: inline-block;
-    width: 80px;
-    margin-left: 10px;
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
-}
-
-.login_form_input_username input,
-.login_form_input_password input{
-    width: 180px;
 }

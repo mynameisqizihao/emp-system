@@ -1,0 +1,229 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei","微软雅黑",sans-serif;
+    background-color: #e6e6de;
+}
+
+.index_top{
+    width: 100%;
+    height: 60px;
+    background-color: #333333;
+    color:white;
+}
+
+.index_top_left{
+    display: inline-block;  /*行内块级元素，这样不用像块级元素那样必须换行，两个行内块级元素还能在同一行*/
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.index_top_right{
+    display: inline-block;
+    float: right;   /*行内块级元素向右浮动，不再待在第一个行内块级元素下面*/
+    /*height: 60px;*/
+    /*line-height: 60px;  !*盒子高度height=行高line-height可以让文字在方框里垂直居中*!*/
+    margin-top: 14px;
+    margin-right: 20px;
+}
+
+.log_out_btn{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: black;
+    padding: 8px 15px; /*两个数字，第一个数字是上下，第二个数字是左右，四个数字的话就是上右下左，三个数字的话上，左右，下*/
+    border-radius: 4px;
+}
+
+.log_out_btn:hover{
+    background-color: #292828;
+}
+
+.log_out_btn:active{
+    background-color: black;
+}
+
+.left_side_bar{
+    width: 200px;
+    height: 100vh;  /*视口高度，根据不同浏览器自由调整占据高度百分比*/
+    background-color: #2b303b;
+    float: left; /*导航栏向左浮动，右边留白*/
+}
+
+.index_top_left_title{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #999999;
+    background-color: #21252b;
+    font-size: 14px;
+    border-bottom: 1px solid #3e444e;
+}
+
+.index_top_left_item_index,
+.index_top_left_item_empmanage {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #dd0c94;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #3e444e;
+}
+
+.index_top_left_item_index:hover,
+.index_top_left_item_empmanage {
+    background-color: #5d9ab5;
+}
+
+.index_top_left_item_index:active,
+.index_top_left_item_empmanage:active {
+    background-color: #286fd8;
+    position: relative;
+    top: 4px;
+}
+
+.register_tips{
+    position: relative;
+    left: 260px;
+    bottom: 47px;
+}
+
+.index_title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-family: "新宋体", sans-serif;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.right_content_area{
+    margin-left: 200px;
+    height: 100vh;
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+.btn_area{
+    margin-bottom: 15px;
+}
+
+.add_emp_a{
+    display: inline-block;
+    background-color: #20f44a;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add_emp_a:hover{
+    background-color: #14a2fb;
+}
+
+.add_emp_a:active{
+    background-color: #205cf4;
+}
+
+.table_border{
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;
+    overflow: hidden;   /*解决边框塌陷问题，防止内容溢出圆角*/
+}
+
+.table_header{
+    background-color: #f5f7fa;
+    border-bottom: 1px solid #ebeef5;
+    overflow: hidden;
+}
+
+.column{
+    float: left;
+    width: 14.28%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.table_data_row{
+    overflow: hidden;
+    border-bottom: 1px solid #ebeef5;
+}
+
+.table_data_row:hover{
+    background-color: #f5f7fa;
+}
+
+.column_data{
+    float: left;
+    width: 14.28%;
+    height: 50px;
+    line-height: 28px;
+    text-align: center;
+    padding-top: 20px;
+    color: #606266;
+    font-size: 14px;
+}
+
+.column_actions{
+    float: left;
+    width: 14.28%;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.edit_btn{
+    display: inline-block;
+    background-color: #409eff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 8px 4px 0px 4px;
+}
+
+.edit_btn:hover{
+    background-color: #008cff;
+}
+
+.edit_btn:active{
+    background-color: #205cf4;
+}
+
+.delete_btn{
+    display: inline-block;
+    background-color: #f56c6c;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 8px 4px 0px 4px;
+}
+
+.delete_btn:hover{
+    background-color: crimson;
+
+}
+
+.delete_btn:active{
+    background-color: #702121;
+
+}

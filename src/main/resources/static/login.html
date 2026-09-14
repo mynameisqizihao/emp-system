@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工管理系统登录页</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+<!--白色卡片容器-->
+<div class="login_img_container">
+<!--    图片外壳-->
+    <div class="login_head_img">
+        <img src="img/001.jpg" alt="图片加载失败！">
+    </div>
+
+    <p class="login_title">齐子豪的员工管理系统（登录页）</p>
+</div>
+
+
+<!--    输入用户名和密码的文本框-->
+<form action="" method="post" class="login_form">
+<!--用户名-->
+    <div class="login_form_input_username">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username" placeholder="请输入用户名" onblur="ajax1()">
+        <span id="username_commit_word"></span>
+    </div>
+
+    <!--    没有账号快速去注册界面-->
+    <div class="register_tips">
+        <span>没有账号？去</span>
+        <a href="register.html" class="register_tips_a">注册</a>
+    </div>
+
+<!--密码-->
+    <div class="login_form_input_password">
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" placeholder="请输入密码" onblur="ajax2()">
+        <span id="password_commit_word"></span>
+
+    </div>
+
+    <a href="index.html" class="login_btn">登 录</a>
+
+    <div class="login_remember_me">
+        <input type="checkbox" id="remember_me" name="jizhuwo">
+        <label for="remember_me" id="remember_me_label">记住我</label>
+<!--        label标签的for是把当前label标签和for里面的id的标签绑定在一起，当发生点击事件时，比如说-->
+<!--        我点击勾选框，勾选框被勾上，我点击记住我这三个字，勾选框不会被勾上，这样的话我们就得精确地-->
+<!--        点击勾选框才能勾上，非常麻烦。-->
+<!--        加上label标签里面来个for="id"，这样让label标签和id所在的标签绑定在一起，-->
+<!--        点击记住我三个字的时候，勾选框也能被勾上。-->
+    </div>
+    
+</form>
+<!--国际化-->
+<div class="login_language">
+    <a href="#" class="login_language_Chinese">中文</a>
+    <span class="login_language_separator"> | </span>
+    <a href="#" class="login_language_English">English</a>
+</div>
+
+</body>
+</html>

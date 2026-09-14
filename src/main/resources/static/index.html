@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>齐子豪的员工管理系统首页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="index_top">
+
+  <div class="index_top_left">
+    齐子豪的员工管理系统
+  </div>
+
+  <div class="index_top_right">
+    <a href="login.html" class="log_out_btn">注销</a>
+  </div>
+
+</div>
+
+<div class="left_side_bar">
+
+    <div class="index_top_left_title">菜单</div>
+    <!--      栏目-->
+    <a href="#" class="index_top_left_item_index">首页</a>
+    <a href="dashboard.html" class="index_top_left_item_empmanage">员工管理</a>
+
+</div>
+
+
+<div class="right_content_area">
+
+    <span class="index_title">
+        欢迎来到齐子豪的员工管理系统首页！！
+    </span>
+    <span class="index_jump">
+        点击技术图标可跳转到官网！！
+    </span>
+    <span id="mouseMove">mouse:这是一个小定位器！！！</span>
+    <div id="divMove"></div>
+    <script>
+        // 这里是$(document).ready(function(){})，里面的内容会在所有HTML元素加载完后执行事件
+        $(function (){
+            $('#divMove').mousemove(function (e){
+                $('#mouseMove').text('x:'+e.pageX+'y:'+e.pageY)
+            })
+        });
+    </script>
+    <!--准备做个大圆圈容器放图片，说明我学习了什么技术，然后做这个项目都用到了什么技术-->
+    <div class="index_right_big_circle">
+        <!--中间的文字-->
+        <div class="circle_text">员工管理系统</div>
+        <!--技术图标-->
+        <div class="index_img_title">
+            <a href="https://www.java.com/zh-CN/" class="img_0">
+                <img src="img/img.png" alt="图片加载失败！！" class="index_img">
+            </a>
+            <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/" class="img_1">
+                <img src="img/img_1.png" alt="图片加载失败！！" class="index_img_1">
+            </a>
+            <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" class="img_2">
+                <img src="img/img_2.png" alt="图片加载失败！！" class="index_img_2">
+            </a>
+            <a href="https://www.mysql.com/" class="img_3">
+                <img src="img/img_3.png" alt="图片加载失败！！" class="index_img_3">
+            </a>
+            <a href="https://mybatis.org/mybatis-3/" class="img_4">
+                <img src="img/img_4.png" alt="图片加载失败！！" class="index_img_4">
+            </a>
+            <a href="https://spring.io/" class="img_5">
+                <img src="img/img_5.png" alt="图片加载失败！！" class="index_img_5">
+            </a>
+            <a href="https://spring.io/projects/spring-boot" class="img_6">
+                <img src="img/img_6.png" alt="图片加载失败！！" class="index_img_6">
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

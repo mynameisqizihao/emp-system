@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function a1 () {
+
+            $.post({
+                url:"/ajax/a4",
+                data:{"name":$("#name").val()},
+                success:function (data) {
+                    if (data.toString()=="OK"){
+                        $("#userInfo").css("color","green");
+                    }else{
+                        $("#userInfo").css("color","red");
+                    }
+                    $("#userInfo").html(data);
+                }
+            })
+        }
+
+        function a2 () {
+            $.post({
+                url: "/ajax/a5",
+                data:{"pwd":$("#pwd").val()},
+                success:function (data) {
+                    if (data.toString()=="OK"){
+                        $("#pwdInfo").css("color","green");
+                    }else{
+                        $("#pwdInfo").css("color","red");
+                    }
+                    $("#pwdInfo").html(data);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<p>
+    用户名:
+    <input type="text" id="name" onblur="a1()">
+    <span id="userInfo"></span>
+</p>
+<p>
+    密码:
+    <input type="text" id="pwd" onblur="a2()">
+    <span id="pwdInfo"></span>
+
+</p>
+</body>
+</html>
