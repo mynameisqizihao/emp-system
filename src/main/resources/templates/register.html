@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工管理系统注册页</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/register.js"></script>
+</head>
+<body>
+<!--白色卡片容器-->
+<div class="login_img_container">
+    <!--    图片外壳-->
+    <div class="login_head_img">
+        <img src="/img/001.jpg" alt="图片加载失败！">
+    </div>
+
+    <p class="login_title" th:text="#{register.tip}">齐子豪的员工管理系统（注册页）</p>
+</div>
+
+
+<!--    输入用户名和密码的文本框-->
+<form action="" method="post" class="login_form">
+    <!--用户名-->
+    <div class="login_form_input_username">
+        <label for="username" th:text="#{register.username}">用户名：</label>
+        <input type="text" id="username" name="username" th:placeholder="#{register.please_input_username}" onblur="ajax3()">
+        <span id="username_commit_word"></span>
+    </div>
+<!--    有账号快速去登陆界面-->
+    <div class="login_tips">
+        <span th:text="#{register.has_User_Go}">已有用户？去</span>
+        <a th:href="@{/login.html}" class="login_tips_a" th:text="#{login.btn}">登录</a>
+    </div>
+
+    <!--密码-->
+    <div class="login_form_input_password">
+        <label for="password" th:text="#{register.password}">密码：</label>
+        <input type="password" id="password" name="password" th:placeholder="#{register.please_input_password}" onblur="ajax4()">
+        <span id="password_commit_word"></span>
+    </div>
+<!--a标签的href老是和onclick争抢跳转我没辙了-->
+<!--    或者直接用button-->
+    <a href="#" class="login_btn" onclick="doRegister();return false;" th:text="#{register.btn}">注 册</a>
+
+</form>
+<!--国际化-->
+<div class="login_language">
+    <a th:href="@{/register.html(l='zh_CN')}" class="login_language_Chinese">中文</a>
+    <span class="login_language_separator"> | </span>
+    <a th:href="@{/register.html(l='en_US')}" class="login_language_English">English</a>
+</div>
+
+</body>
+</html>
