@@ -2,6 +2,7 @@ package com.qi.empsystem.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qi.empsystem.dao.UserMapper;
 import com.qi.empsystem.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,12 @@ import java.util.List;
 @RequestMapping("/ajax")
 @Controller
 public class UserController {
+    private final UserMapper userMapper;
+
+    public UserController(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
     @RequestMapping("/a1")
     @ResponseBody
     public String ajax1(String name){

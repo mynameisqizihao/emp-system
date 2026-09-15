@@ -131,9 +131,9 @@ body {
 }
 
 .login_remember_me{
-    width: 300px;
+    width: 280px;
     margin: 10px auto;
-    text-align: left;
+    text-align: center;
     font-size: 14px;
     color: #2b303b;
     height: 30px;
@@ -145,16 +145,19 @@ body {
     display: inline-block;
     width: 16px;
     height: 16px;
-    margin: 10px 0px 0px 120px;
+    margin: 0;
+    vertical-align: middle;
 }
 
 #remember_me_label{
-    position: relative;
-    right: 20px;
-    bottom: 2px;
+    /*position: relative;*/
+    /*right: 20px;*/
+    /*bottom: 2px;*/
     display: inline-block;
-    margin: -10px 0px 0px -3px;
+    margin-left: 5px;
     font-size: 15px;
+    vertical-align: center; /*垂直居中*/
+    white-space: nowrap; /*不许换行*/
 }
 
 #username_commit_word,
