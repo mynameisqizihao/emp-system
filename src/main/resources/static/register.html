@@ -39,8 +39,9 @@
         <input type="password" id="password" name="password" placeholder="请输入密码" onblur="ajax4()">
         <span id="password_commit_word"></span>
     </div>
-
-    <a href="index.html" class="login_btn">注 册</a>
+<!--a标签的href老是和onclick争抢跳转我没辙了-->
+<!--    或者直接用button-->
+    <a href="#" class="login_btn" onclick="doRegister();return false;">注 册</a>
 
 </form>
 <!--国际化-->

@@ -121,3 +121,19 @@ body {
     left: 260px;
     bottom: 47px;
 }
+
+
+#username_commit_word,
+#password_commit_word{
+    display: inline-block;
+    width: 80px;
+    margin-left: 10px;
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+.login_form_input_username input,
+.login_form_input_password input{
+    width: 180px;
+}
