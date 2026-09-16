@@ -22,4 +22,14 @@ public class PageController {
     public String dashboardPage(){
         return "dashboard";
     }
+    @GetMapping("/add.html")
+    public String addPage(){
+        return "add";
+    }
+    @GetMapping("/update.html")
+    public String updatePage(){
+        return "update";
+    }
+
+
 }

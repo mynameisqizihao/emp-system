@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>员工管理界面</title>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="index_top_right">
-    <a href="login.html" class="log_out_btn">注销</a>
+    <a th:href="@{/login.html}" class="log_out_btn">注销</a>
   </div>
 
 </div>
@@ -23,15 +23,15 @@
 
     <div class="index_top_left_title">菜单</div>
     <!--      栏目-->
-    <a href="index.html" class="index_top_left_item_index">首页</a>
-    <a href="#" class="index_top_left_item_empmanage">员工管理</a>
+    <a th:href="@{/index.html}" class="index_top_left_item_index">首页</a>
+    <a th:href="@{/dashboard.html}" class="index_top_left_item_empmanage">员工管理</a>
 
 </div>
 
 <div class="right_content_area">
 
     <div class="btn_area">
-        <a href="add.html" class="add_emp_a">添加员工</a>
+        <a th:href="@{add.html}" class="add_emp_a">添加员工</a>
 
     </div>
 
@@ -58,8 +58,8 @@
             <div class="column_data">教学部</div>
             <div class="column_data">2025-04-12 12:22:22</div>
             <div class="column_actions">
-                <a href="update.html" class="edit_btn">编辑</a>
-                <a href="#" class="delete_btn">删除</a>
+                <a th:href="@{/update.html}" class="edit_btn">编辑</a>
+                <a th:href="@{#}" class="delete_btn">删除</a>
             </div>
 
         </div>
@@ -73,8 +73,8 @@
             <div class="column_data">市场部</div>
             <div class="column_data">2023-04-12 12:11:44</div>
             <div class="column_actions">
-                <a href="update.html" class="edit_btn">编辑</a>
-                <a href="#" class="delete_btn">删除</a>
+                <a th:href="@{/update.html}" class="edit_btn">编辑</a>
+                <a th:href="@{#}" class="delete_btn">删除</a>
             </div>
 
         </div>
@@ -88,8 +88,8 @@
             <div class="column_data">教研部</div>
             <div class="column_data">2022-12-15 22:45:23</div>
             <div class="column_actions">
-                <a href="update.html" class="edit_btn">编辑</a>
-                <a href="#" class="delete_btn">删除</a>
+                <a th:href="@{/update.html}" class="edit_btn">编辑</a>
+                <a th:href="@{#}" class="delete_btn">删除</a>
             </div>
 
         </div>
