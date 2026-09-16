@@ -14,4 +14,12 @@ public class PageController {
     public String registerPage(){
         return "register";
     }
+    @GetMapping("/index.html")
+    public String indexPage(){
+        return "index";
+    }
+    @GetMapping("/dashboard.html")
+    public String dashboardPage(){
+        return "dashboard";
+    }
 }

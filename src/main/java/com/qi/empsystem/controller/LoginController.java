@@ -23,4 +23,16 @@ public class LoginController {
     public String login(String name,String password){
         return userService.login(name,password);
     }
+
+    @PostMapping("/checkName")
+    @ResponseBody
+    public String checkName(String name){
+        return userService.checkName(name);
+    }
+
+    @PostMapping("/checkPassword")
+    @ResponseBody
+    public String checkPassword(String name,String password){
+        return userService.checkPassword(name,password);
+    }
 }

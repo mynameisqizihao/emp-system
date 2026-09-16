@@ -1,6 +1,6 @@
 function ajax1 () {
     $.post({
-        url:"/ajax/a1",
+        url:"/user/checkName",
         data:{"name":$("#username").val()},
         success:function (data) {
             if (data.toString()==="OK"){
@@ -15,8 +15,12 @@ function ajax1 () {
 
 function ajax2 () {
     $.ajax({
-        url:"/ajax/a2",
-        data:{"password":$("#password").val()},
+        url:"/user/checkPassword",
+        type:"POST",
+        data:{
+            "name":$("#username").val(),
+            "password":$("#password").val()
+        },
         success:function (data) {
             if (data.toString()==="OK"){
                 $("#password_commit_word").css("color","green");
@@ -54,7 +58,7 @@ function doLogin () {
                     window.location.href = "/index.html";
                 },1000)
             }else{
-                alert("登录失败！请检查用户名和密码是否正确或是否已注册"+data);
+                alert("登录失败！"+data);
             }
         },
         error:function () {

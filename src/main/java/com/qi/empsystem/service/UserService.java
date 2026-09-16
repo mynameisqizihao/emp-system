@@ -37,4 +37,31 @@ public class UserService {
         return "OK";
     }
 
+    public String checkName(String name){
+        if(name==null || name.equals("")){
+            return "用户名不能为空";
+        }
+        User user = userMapper.getUserByName(name);
+        if(user==null){
+            return "用户不存在";
+        }
+            return "OK";
+    }
+
+    public String checkPassword(String name,String password){
+
+        if(password==null || password.equals("")){
+            return "密码不能为空";
+        }
+
+        User user = userMapper.getUserByName(name);
+
+        if(user==null){
+            return "用户不存在";
+        }
+        if(!user.getPassword().equals(password)){
+            return "密码错误";
+        }
+        return "OK";
+    }
 }
