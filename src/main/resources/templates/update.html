@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>员工信息修改界面</title>
   <link rel="stylesheet" href="/css/update.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/update.js"></script>
 </head>
 <body>
 
@@ -29,46 +31,48 @@
 </div>
 
 <div class="right_content_area">
+<!--隐藏域，存储员工id，提交修改时传给后端-->
+    <input type="hidden" id="empId">
 
     <div class="form_data">
 
-      <label>LastName姓名</label>
-      <input type="text" placeholder="请输入姓名">
+      <label>姓名</label>
+      <input type="text" id="lastName" placeholder="请输入姓名">
 
     </div>
 
     <div class="form_data">
 
-      <label>Email邮箱</label>
-      <input type="text" placeholder="请输入邮箱">
+      <label>邮箱</label>
+      <input type="text" id="email" placeholder="请输入邮箱">
 
     </div>
 
     <div class="form_data gender_group">
 
-      <label>Gender性别</label>
+      <label>性别</label>
 
       <span class="radio_item">
-        <input type="radio" name="gender" class="radio_input" value="女"> 女
+        <input type="radio" name="gender" class="radio_input" value="0"> 女
       </span>
 <!--写上name,这里有相同name的两个input标签被html自动分成一个小组，小组里具有排他性，只能单选-->
       <span class="radio_item">
-        <input type="radio" name="gender" class="radio_input" value="男" checked> 男
+        <input type="radio" name="gender" class="radio_input" value="1"> 男
       </span>
 
     </div>
 
     <div class="form_data">
 
-      <label>Department部门</label>
+      <label>部门</label>
 
-      <select name="department" class="dept_select">
+      <select name="department" id="department" class="dept_select">
 
-        <option value="市场部" selected>市场部</option>
-        <option value="教学部">教学部</option>
-        <option value="教研部">教研部</option>
-        <option value="运营部">运营部</option>
-        <option value="后勤部">后勤部</option>
+<!--        <option value="市场部" selected>市场部</option>-->
+<!--        <option value="教学部">教学部</option>-->
+<!--        <option value="教研部">教研部</option>-->
+<!--        <option value="运营部">运营部</option>-->
+<!--        <option value="后勤部">后勤部</option>-->
 
       </select>
 
@@ -76,12 +80,12 @@
 
     <div class="form_data">
 
-      <label>Birth生日</label>
-      <input type="text" placeholder="请输入生日">
+      <label>生日</label>
+      <input type="date" id="birth" placeholder="请输入生日">
 
     </div>
 
-      <a th:href="@{/dashboard.html}" class="update_btn_a">修改</a>
+      <a href="#" class="update_btn_a" onclick="updateEmployee(); return false;">修改</a>
 
 </div>
 
