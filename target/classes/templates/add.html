@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>员工信息修改界面</title>
+  <link rel="stylesheet" href="/css/add.css">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/js/add.js"></script>
+</head>
+<body>
+
+<div class="index_top">
+
+  <div class="index_top_left">
+    员工信息修改界面
+  </div>
+
+  <div class="index_top_right">
+    <a th:href="@{/login.html}" class="log_out_btn">注销</a>
+  </div>
+
+</div>
+
+<div class="left_side_bar">
+
+  <div class="index_top_left_title">菜单</div>
+  <!--      栏目-->
+  <a th:href="@{/index.html}" class="index_top_left_item_index">首页</a>
+  <a th:href="@{#}" class="index_top_left_item_empmanage">员工管理</a>
+
+</div>
+
+<div class="right_content_area">
+
+  <div class="form_data">
+
+    <label>姓名</label>
+    <input type="text" id="lastName" placeholder="请输入姓名">
+
+  </div>
+
+  <div class="form_data">
+
+    <label>邮箱</label>
+    <input type="text" id="email" placeholder="请输入邮箱">
+
+  </div>
+
+  <div class="form_data gender_group">
+
+    <label>性别</label>
+
+    <span class="radio_item">
+        <input type="radio" name="gender" class="radio_input" value="0"> 女
+      </span>
+    <!--写上name,这里有相同name的两个input标签被html自动分成一个小组，小组里具有排他性，只能单选-->
+    <span class="radio_item">
+        <input type="radio" name="gender" class="radio_input" value="1" checked> 男
+      </span>
+
+  </div>
+
+  <div class="form_data">
+
+    <label>部门</label>
+
+    <select name="department" id="department" class="dept_select">
+
+<!--      <option value="市场部" selected>市场部</option>-->
+<!--      <option value="教学部">教学部</option>-->
+<!--      <option value="教研部">教研部</option>-->
+<!--      <option value="运营部">运营部</option>-->
+<!--      <option value="后勤部">后勤部</option>-->
+
+    </select>
+
+  </div>
+
+  <div class="form_data">
+
+    <label>生日</label>
+    <input type="date" id="birth" placeholder="请输入生日">
+
+  </div>
+
+  <a href="#" class="update_btn_a" onclick="saveEmployee(); return false;">添加</a>
+
+</div>
+
+</body>
+</html>

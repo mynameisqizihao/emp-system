@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qi.empsystem.dao.EmployeeMapper">
+
+    <resultMap id="EmployeeMap" type="com.qi.empsystem.pojo.Employee">
+        <id property="id" column="eid"></id>
+        <result property="lastName" column="last_name"></result>
+        <result property="email" column="email"></result>
+        <result property="gender" column="gender"></result>
+        <result property="birth" column="birth"></result>
+        <association property="department" javaType="com.qi.empsystem.pojo.Department">
+            <id property="id" column="did"></id>
+            <result property="departmentName" column="department_name"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectAllEmployees" resultMap="EmployeeMap">
+        select e.id eid,
+               e.last_name,
+               e.email,
+               e.gender,
+               e.department_id,
+               e.birth,
+               d.id did,
+               d.department_name
+        from employee e
+        inner join department d
+        on e.department_id = d.id
+        order by e.id asc
+    </select>
+
+    <select id="selectAllEmployeesById" parameterType="Integer" resultMap="EmployeeMap">
+        select e.id eid,
+               e.last_name,
+               e.email,
+               e.gender,
+               e.department_id,
+               e.birth,
+               d.id did,
+               d.department_name
+        from employee e
+        inner join department d
+        on e.department_id=d.id
+        <where>
+            <if test="id != null">
+                e.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addEmployee" parameterType="com.qi.empsystem.pojo.Employee">
+        insert into employee(last_name,email,gender,department_id,birth)
+        values (#{lastName},#{email},#{gender},#{department.id},#{birth})
+    </insert>
+
+    <update id="updateEmployee" parameterType="com.qi.empsystem.pojo.Employee">
+        update employee
+        <set>
+            last_name=#{lastName},
+            email=#{email},
+            gender=#{gender},
+            department_id=#{department.id},
+            birth=#{birth}
+        </set>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteEmployee" parameterType="Integer">
+        delete from employee
+        <where>
+            <if test="id != null">
+                id=#{id}
+            </if>
+        </where>
+    </delete>
+</mapper>

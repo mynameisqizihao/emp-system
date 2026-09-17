@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工管理界面</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+</head>
+<body>
+
+<div class="index_top">
+
+  <div class="index_top_left">
+    员工管理界面
+  </div>
+
+  <div class="index_top_right">
+    <a th:href="@{/login.html}" class="log_out_btn">注销</a>
+  </div>
+
+</div>
+
+<div class="left_side_bar">
+
+    <div class="index_top_left_title">菜单</div>
+    <!--      栏目-->
+    <a th:href="@{/index.html}" class="index_top_left_item_index">首页</a>
+    <a th:href="@{/dashboard.html}" class="index_top_left_item_empmanage">员工管理</a>
+
+</div>
+
+<div class="right_content_area">
+
+    <div class="btn_area">
+        <a th:href="@{/add.html}" class="add_emp_a">添加员工</a>
+
+    </div>
+
+<div class="table_border">
+
+    <div class="table_header">
+        <div class="column">编号</div>
+        <div class="column">姓名</div>
+        <div class="column">邮箱</div>
+        <div class="column">性别</div>
+        <div class="column">部门</div>
+        <div class="column">生日</div>
+        <div class="column">操作</div>
+    </div>
+
+    <div class="data_area" id="data_area">
+
+<!--        <div class="table_data_row">-->
+
+<!--            <div class="column_data">1001</div>-->
+<!--            <div class="column_data">AA</div>-->
+<!--            <div class="column_data">A2473@qq.com</div>-->
+<!--            <div class="column_data">女</div>-->
+<!--            <div class="column_data">教学部</div>-->
+<!--            <div class="column_data">2025-04-12 12:22:22</div>-->
+<!--            <div class="column_actions">-->
+<!--                <a th:href="@{/update.html}" class="edit_btn">编辑</a>-->
+<!--                <a th:href="@{#}" class="delete_btn">删除</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--        <div class="table_data_row">-->
+
+<!--            <div class="column_data">1002</div>-->
+<!--            <div class="column_data">BB</div>-->
+<!--            <div class="column_data">B2473@qq.com</div>-->
+<!--            <div class="column_data">男</div>-->
+<!--            <div class="column_data">市场部</div>-->
+<!--            <div class="column_data">2023-04-12 12:11:44</div>-->
+<!--            <div class="column_actions">-->
+<!--                <a th:href="@{/update.html}" class="edit_btn">编辑</a>-->
+<!--                <a th:href="@{#}" class="delete_btn">删除</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--        <div class="table_data_row">-->
+
+<!--            <div class="column_data">1003</div>-->
+<!--            <div class="column_data">CC</div>-->
+<!--            <div class="column_data">C2473@qq.com</div>-->
+<!--            <div class="column_data">女</div>-->
+<!--            <div class="column_data">教研部</div>-->
+<!--            <div class="column_data">2022-12-15 22:45:23</div>-->
+<!--            <div class="column_actions">-->
+<!--                <a th:href="@{/update.html}" class="edit_btn">编辑</a>-->
+<!--                <a th:href="@{#}" class="delete_btn">删除</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
