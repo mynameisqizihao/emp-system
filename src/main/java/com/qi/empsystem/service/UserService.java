@@ -64,4 +64,9 @@ public class UserService {
         }
         return "OK";
     }
+
+    public User getUserByName(String name){
+        return userMapper.getUserByName(name);
+    }
 }
+
