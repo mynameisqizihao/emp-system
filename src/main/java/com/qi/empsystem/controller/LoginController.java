@@ -24,6 +24,7 @@ public class LoginController {
     @PostMapping("/login")
     @ResponseBody
     public String login(String name, String password, HttpServletRequest request){
+//        return userService.login(name,password);
         String result = userService.login(name,password);
         if ("OK".equals(result)){
             User user = userService.getUserByName(name);
