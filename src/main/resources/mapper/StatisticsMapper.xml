@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qi.empsystem.dao.StatisticsMapper">
+
+    <!-- 各部门人数：name = 部门名，value = 人数 -->
+    <select id="listDeptEmployeeCount" resultType="java.util.HashMap">
+        select d.department_name as name, count(e.id) as value
+        from department d
+        left join employee e on d.id = e.department_id
+        group by d.id, d.department_name
+        order by d.id asc
+    </select>
+
+    <!-- 本月请假条数：按 start_date 落在当前月份算。
+         如果想改成「本月提交的申请」，把 start_date 换成 apply_time 即可 -->
+    <select id="countMonthLeave" resultType="int">
+        select count(*)
+        from `leave`
+        where date_format(start_date, '%Y-%m') = date_format(curdate(), '%Y-%m')
+    </select>
+
+</mapper>

@@ -1,31 +1,52 @@
 function ajax3 () {
-    $.post({
-        url:"/ajax/a3",
-        data:{"name":$("#username").val()},
-        success:function (data) {
-            if (data.toString()==="OK"){
-                $("#username_commit_word").css("color","green");
-            }else{
-                $("#username_commit_word").css("color","red");
-            }
-            $("#username_commit_word").html(data);
-        }
-    });
+    var name = $("#username").val().trim();
+    if (name === ""){
+        $("#username_commit_word").css("color","red").html("用户名不能为空");
+    }else{
+        $("#username_commit_word").css("color","green").html("OK");
+
+    }
+    // $.post({
+    //     url:"/ajax/a3",
+    //     data:{"name":$("#username").val()},
+    //     success:function (data) {
+    //         if (data.toString()==="OK"){
+    //             $("#username_commit_word").css("color","green");
+    //         }else{
+    //             $("#username_commit_word").css("color","red");
+    //         }
+    //         $("#username_commit_word").html(data);
+    //     }
+    // });
 }
 
 function ajax4 () {
-    $.ajax({
-        url:"/ajax/a4",
-        data:{"password":$("#password").val()},
-        success:function (data) {
-            if (data.toString()==="OK"){
-                $("#password_commit_word").css("color","green");
-            }else{
-                $("#password_commit_word").css("color","red");
-            }
-            $("#password_commit_word").html(data);
-        }
-    });
+    var password = $("#password").val().trim();
+    if (password === ""){
+        $("#password_commit_word").css("color","red").html("密码不能为空");
+    }else if (password.length < 6){
+        $("#password_commit_word").css("color","red").html("密码至少6位");
+    }else{
+        $("#password_commit_word").css("color","green").html("OK");
+
+    }
+
+    // $.ajax({
+    //     url:"/ajax/a4",
+    //     type: "POST",
+    //     data:{
+    //         "name":$("#username").val(),
+    //         "password":md5($("#password").val())
+    //     },
+    //     success:function (data) {
+    //         if (data.toString()==="OK"){
+    //             $("#password_commit_word").css("color","green");
+    //         }else{
+    //             $("#password_commit_word").css("color","red");
+    //         }
+    //         $("#password_commit_word").html(data);
+    //     }
+    // });
 }
 
 function doRegister () {

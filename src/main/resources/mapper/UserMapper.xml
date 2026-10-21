@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qi.empsystem.dao.UserMapper">
 
+    <!-- 根据 id 查询用户 -->
     <select id="getUserById" resultType="com.qi.empsystem.pojo.User">
         select * from user
         <where>
@@ -13,6 +14,7 @@
         </where>
     </select>
 
+    <!-- 根据用户名查询用户 -->
     <select id="getUserByName" resultType="com.qi.empsystem.pojo.User">
         select * from user
         <where>
@@ -22,9 +24,17 @@
         </where>
     </select>
 
-    <insert id="addUser" parameterType="com.qi.empsystem.pojo.User">
+    <!-- 新增用户 -->
+    <insert id="insertUser" parameterType="com.qi.empsystem.pojo.User">
         insert into user (name,password)
         values (#{name},#{password})
     </insert>
+
+    <!-- 修改密码，password 必须是已经加密过的 -->
+    <update id="updatePassword">
+        update user
+        set password = #{password}
+        where name = #{name}
+    </update>
 
 </mapper>

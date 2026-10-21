@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qi.empsystem.dao.SalaryMapper">
+
+    <resultMap id="SalaryMap" type="com.qi.empsystem.pojo.Salary">
+        <id property="id" column="id"></id>
+        <result property="employeeId" column="employee_id"></result>
+        <result property="salaryMonth" column="salary_month"></result>
+        <result property="baseSalary" column="base_salary"></result>
+        <result property="bonus" column="bonus"></result>
+        <result property="deduction" column="deduction"></result>
+        <result property="realSalary" column="real_salary"></result>
+    </resultMap>
+
+    <!-- 新增工资记录 -->
+    <insert id="insertSalary" parameterType="com.qi.empsystem.pojo.Salary" useGeneratedKeys="true" keyProperty="id">
+        insert into salary(employee_id, salary_month, base_salary, bonus, deduction, real_salary)
+        values (#{employeeId}, #{salaryMonth}, #{baseSalary}, #{bonus}, #{deduction}, #{realSalary})
+    </insert>
+
+    <!-- 查询某员工的全部工资记录 -->
+    <select id="listByEmployeeId" parameterType="Integer" resultMap="SalaryMap">
+        select id, employee_id, salary_month, base_salary, bonus, deduction, real_salary
+        from salary
+        where employee_id = #{employeeId}
+        order by salary_month desc
+    </select>
+
+    <!-- 查询某员工某个月的工资记录 -->
+    <select id="getByEmployeeAndMonth" resultMap="SalaryMap">
+        select id, employee_id, salary_month, base_salary, bonus, deduction, real_salary
+        from salary
+        where employee_id = #{employeeId} and salary_month = #{salaryMonth}
+    </select>
+
+</mapper>

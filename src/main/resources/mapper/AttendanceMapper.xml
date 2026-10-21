@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qi.empsystem.dao.AttendanceMapper">
+
+    <resultMap id="AttendanceMap" type="com.qi.empsystem.pojo.Attendance">
+        <id property="id" column="id"></id>
+        <result property="employeeId" column="employee_id"></result>
+        <result property="workDate" column="work_date"></result>
+        <result property="checkInTime" column="check_in_time"></result>
+        <result property="checkOutTime" column="check_out_time"></result>
+        <result property="status" column="status"></result>
+    </resultMap>
+
+    <!-- 新增打卡记录 -->
+    <insert id="insertAttendance" parameterType="com.qi.empsystem.pojo.Attendance" useGeneratedKeys="true" keyProperty="id">
+        insert into attendance(employee_id, work_date, check_in_time, check_out_time, status)
+        values (#{employeeId}, #{workDate}, #{checkInTime}, #{checkOutTime}, #{status})
+    </insert>
+
+    <!-- 更新下班打卡时间和状态 -->
+    <update id="updateCheckOut" parameterType="com.qi.empsystem.pojo.Attendance">
+        update attendance
+        <set>
+            check_out_time = #{checkOutTime},
+            status = #{status}
+        </set>
+        where id = #{id}
+    </update>
+
+    <!-- 单独更新状态 -->
+    <update id="updateStatus">
+        update attendance
+        set status = #{status}
+        where id = #{id}
+    </update>
+
+    <!-- 查询某员工某天的打卡记录 -->
+    <select id="getToday" resultMap="AttendanceMap">
+        select id, employee_id, work_date, check_in_time, check_out_time, status
+        from attendance
+        where employee_id = #{employeeId} and work_date = #{workDate}
+    </select>
+
+    <!-- 考勤记录总数 -->
+    <select id="countAttendances" resultType="int">
+        select count(*) from attendance
+    </select>
+
+    <!-- 分页查询考勤记录 -->
+    <select id="listAttendancesByPage" resultMap="AttendanceMap">
+        select id, employee_id, work_date, check_in_time, check_out_time, status
+        from attendance
+        order by work_date desc, employee_id asc
+        limit #{offset}, #{size}
+    </select>
+
+    <!-- 查询某员工的全部考勤记录 -->
+    <select id="listByEmployeeId" parameterType="Integer" resultMap="AttendanceMap">
+        select id, employee_id, work_date, check_in_time, check_out_time, status
+        from attendance
+        where employee_id = #{employeeId}
+        order by work_date desc
+    </select>
+
+    <!-- 统计某一天的打卡人数 -->
+    <select id="countToday" resultType="int">
+        select count(*) from attendance where work_date = #{workDate}
+    </select>
+
+</mapper>

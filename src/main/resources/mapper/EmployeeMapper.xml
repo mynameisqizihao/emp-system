@@ -16,7 +16,8 @@
         </association>
     </resultMap>
 
-    <select id="selectAllEmployees" resultMap="EmployeeMap">
+    <!-- 查询所有员工（含部门名） -->
+    <select id="listEmployees" resultMap="EmployeeMap">
         select e.id eid,
                e.last_name,
                e.email,
@@ -31,7 +32,8 @@
         order by e.id asc
     </select>
 
-    <select id="selectAllEmployeesById" parameterType="Integer" resultMap="EmployeeMap">
+    <!-- 根据 id 查询单个员工 -->
+    <select id="getEmployeeById" parameterType="Integer" resultMap="EmployeeMap">
         select e.id eid,
                e.last_name,
                e.email,
@@ -50,11 +52,13 @@
         </where>
     </select>
 
-    <insert id="addEmployee" parameterType="com.qi.empsystem.pojo.Employee">
+    <!-- 新增员工 -->
+    <insert id="insertEmployee" parameterType="com.qi.empsystem.pojo.Employee">
         insert into employee(last_name,email,gender,department_id,birth)
         values (#{lastName},#{email},#{gender},#{department.id},#{birth})
     </insert>
 
+    <!-- 修改员工 -->
     <update id="updateEmployee" parameterType="com.qi.empsystem.pojo.Employee">
         update employee
         <set>
@@ -71,6 +75,7 @@
         </where>
     </update>
 
+    <!-- 删除员工 -->
     <delete id="deleteEmployee" parameterType="Integer">
         delete from employee
         <where>
@@ -79,4 +84,44 @@
             </if>
         </where>
     </delete>
+
+    <!-- 统计员工总数（不带搜索条件） -->
+    <select id="countEmployees" resultType="int">
+        select count(*) from employee
+    </select>
+
+    <!-- 分页查询：带关键字搜索（按姓名或邮箱模糊匹配） -->
+    <select id="listEmployeesByPage" resultMap="EmployeeMap">
+        select e.id eid,
+               e.last_name,
+               e.email,
+               e.gender,
+               e.department_id,
+               e.birth,
+               d.id did,
+               d.department_name
+        from employee e
+        inner join department d
+        on e.department_id=d.id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                (e.last_name like concat('%', #{keyword}, '%')
+                 or e.email like concat('%', #{keyword}, '%'))
+            </if>
+        </where>
+        order by e.id asc
+        limit #{offset},#{size}
+    </select>
+
+    <!-- 搜索条件必须和上面的 listEmployeesByPage 完全一致，否则分页总数会算错 -->
+    <select id="countEmployeesByKeyword" resultType="int">
+        select count(*)
+        from employee e
+        <where>
+            <if test="keyword != null and keyword != ''">
+                (e.last_name like concat('%', #{keyword}, '%')
+                 or e.email like concat('%', #{keyword}, '%'))
+            </if>
+        </where>
+    </select>
 </mapper>

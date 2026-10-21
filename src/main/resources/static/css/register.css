@@ -1,17 +1,29 @@
 body {
-    background-color: #f4b9b9;  /*给网页背景颜色弄一个暖色调*/
     margin: 0;
-    border: 0;
-    font-family: "Microsoft YaHei ","微软雅黑",sans-serif;
+    padding: 0;
+    font-family: "Microsoft YaHei ","PingFang SC","Helvetica Neue","Arial",sans-serif;
+    min-height: 100vh;
+
+    background-image: url("../img/666666.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 /*登录卡片容器*/
 .login_img_container {
     width: 400px;
-    background-color: white;
-    margin: 60px auto; /*上外边距80像素，下右左边距自动*/
+    margin: 60px auto 0; /*上外边距80像素，下右左边距自动*/
     padding: 40px; /*内边距40像素，图片不能贴边*/
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 16px;
+
+    background: linear-gradient(135deg,
+    rgba(255,255,255,0.25) 0%,
+    rgba(200,220,255,0.15) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 
 .login_head_img img{
@@ -23,16 +35,9 @@ body {
     margin: 0 auto;
 }
 
-/*input {*/
-/*    border: 1px solid gray;*/
-/*    border-radius: 4px;*/
-/*    padding: 5px;*/
-/*    outline: none;*/
-/*}*/
-
 .login_form {
     width: 400px;
-    margin: -30px auto;
+    margin: 20px auto 0;
     text-align: center;
 }
 
@@ -41,6 +46,9 @@ body {
     width: 70px;
     text-align: right;
     margin-right: 10px;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .login_form input {
@@ -62,10 +70,12 @@ body {
 .login_title{
     margin-top: 20px;
     margin-bottom: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    color: rgba(37, 14, 14, 0.98);
-    text-align: center ;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
 .login_btn{
@@ -95,33 +105,50 @@ body {
 }
 
 .login_language{
-    width: 200px;
-    margin: 50px auto;
+    width: 100%;
+    margin: 30px auto;
     text-align: center;
 }
 .login_language_Chinese,
 .login_language_English{
-    color: rgba(0, 0, 0, 0.87);
+    color: white;
     font-size: 14px;
     margin: 0 10px 0 10px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+
 }
 
 .login_language_Chinese:hover,
 .login_language_English:hover{
-    color: #008cff;
+    color: #f35881;
 }
 
 .login_language_Chinese:active,
 .login_language_English:active{
-    color: #0048ff;
+    color: #ec084d;
 }
 
 .login_tips{
-    position: relative;
-    left: 260px;
-    bottom: 47px;
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
+.login_tips_a{
+    color: #7300ff;
+    text-decoration: underline;
+    margin-left: 3px;
+}
+
+.login_tips_a:hover{
+    color: #cb47ef;
+}
+
+.login_tips_a:active{
+    color: #c1089c;
+}
 
 #username_commit_word,
 #password_commit_word{
@@ -136,4 +163,10 @@ body {
 .login_form_input_username input,
 .login_form_input_password input{
     width: 180px;
+}
+
+.register_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

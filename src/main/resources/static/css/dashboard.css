@@ -2,7 +2,8 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Microsoft YaHei","微软雅黑",sans-serif;
-    background-color: #e6e6de;
+    background-color: #f0f2f5;
+    overflow: hidden;
 }
 
 .index_top{
@@ -10,16 +11,28 @@ body{
     height: 60px;
     background-color: #333333;
     color:white;
+    overflow: hidden;
 }
 
 .index_top_left{
-    display: inline-block;  /*行内块级元素，这样不用像块级元素那样必须换行，两个行内块级元素还能在同一行*/
-    width: 200px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
+    display: flex;  /*行内块级元素，这样不用像块级元素那样必须换行，两个行内块级元素还能在同一行*/
+    align-items: center;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.header_logo{
+    height: 35px;
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.header_title{
     font-size: 18px;
     font-weight: bold;
+    color: white;
+    line-height: 60px;
 }
 
 .index_top_right{
@@ -51,7 +64,7 @@ body{
 
 .left_side_bar{
     width: 200px;
-    height: 100vh;  /*视口高度，根据不同浏览器自由调整占据高度百分比*/
+    min-height: 100vh;  /*视口高度，根据不同浏览器自由调整占据高度百分比*/
     background-color: #2b303b;
     float: left; /*导航栏向左浮动，右边留白*/
 }
@@ -108,9 +121,14 @@ body{
 
 .right_content_area{
     margin-left: 200px;
-    height: 100vh;
-    background-color: #f0f2f5;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+
+    background-image: url("../img/home_banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .btn_area{
@@ -226,4 +244,10 @@ body{
 .delete_btn:active{
     background-color: #702121;
 
+}
+
+#pagination{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
 }
